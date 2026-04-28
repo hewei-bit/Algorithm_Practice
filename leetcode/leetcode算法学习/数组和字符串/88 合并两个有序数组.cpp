@@ -1,5 +1,5 @@
 /**
- * @File Name: 35 插入搜索位置.cpp
+ * @File Name: 88 合并两个有序数组.cpp
  * @Brief :
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
@@ -17,26 +17,23 @@
 #include <numeric>
 using namespace std;
 
-class Solution
-{
+class Solution {
 public:
-    int searchInsert(vector<int> &nums, int target)
-    {
-        int n = nums.size();
-        int left = 0, right = n - 1, ans = n;
-        while (left <= right)
-        {
-            int mid = ((right - left) >> 1) + left;
-            if (target <= nums[mid])
-            {
-                ans = mid;
-                right = mid - 1;
-            }
-            else
-            {
-                left = mid + 1;
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i = m - 1, j = n - 1, k = m + n - 1;
+
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            } else {
+                nums1[k--] = nums2[j--];
             }
         }
-        return ans;
+
+        while (j >= 0) {
+            nums1[k--] = nums2[j--];
+        }
+
+        return;
     }
 };

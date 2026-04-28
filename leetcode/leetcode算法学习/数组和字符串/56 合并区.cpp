@@ -1,5 +1,5 @@
 /**
- * @File Name: 56 合并区.cpp
+ * @File Name:  56 合并区.cpp
  * @Brief :
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
@@ -31,9 +31,7 @@ public:
         {
             int left = intervals[i][0];
             int right = intervals[i][1];
-            // 检查最后一个的右边有没有比新的左边小，小就push
-            // 否则就更新最后一个的右边
-            // 注意：如果res为空，直接push
+
             if (!res.size() || res.back()[1] < left)
             {
                 res.push_back({left, right});
